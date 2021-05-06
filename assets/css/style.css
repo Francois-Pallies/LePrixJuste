@@ -469,4 +469,9 @@ h4 {
         height: 75px;
 
     }
+    #startBtn {
+        -webkit-transform: translateY(7vh);
+            -ms-transform: translateY(7vh);
+                transform: translateY(7vh);
+    }
 }
