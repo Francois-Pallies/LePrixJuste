@@ -57,17 +57,6 @@ h1 {
     z-index: 1000;
     font-family: 'Zen Dots', cursive;
     font-size: 5em;
-    margin-bottom: 50px;
-}
-@-webkit-keyframes titleUp {
-    from {
-        -webkit-transform: translateY(0);
-                transform: translateY(0);
-    }
-    to {
-        -webkit-transform: translateY(-35vh);
-                transform: translateY(-35vh)
-    }
 }
 @keyframes titleUp {
     from {
@@ -426,6 +415,10 @@ h4 {
 @media screen and (max-width: 440px) {
     h2 {
         font-size: 1em;
+        -webkit-transform: translateY(-5vh);
+            -ms-transform: translateY(-5vh);
+                transform: translateY(-5vh);
+    
     }
     #guessBtn {
         width: 80%;
@@ -435,5 +428,45 @@ h4 {
     -webkit-transform: translateY(15vh);
     -ms-transform: translateY(15vh);
         transform: translateY(15vh);
+    }
+    @keyframes titleUp {
+        from {
+            -webkit-transform: translateY(0);
+                    transform: translateY(0);
+        }
+        to {
+            -webkit-transform: translateY(-30vh);
+                    transform: translateY(-30vh)
+        }
+    }
+    #consigne {
+        -webkit-transform: translateY(0vh);
+            -ms-transform: translateY(0vh);
+                transform: translateY(0vh);
+    }
+    #guessField {
+        height: 150px;
+        width: 150px;
+        font-size: 4em;
+        text-align: center;
+        font-family: 'Zen Dots', cursive;
+        -webkit-transform: translateY(5vh);
+            -ms-transform: translateY(5vh);
+                transform: translateY(5vh);
+        color: darkgrey;
+        background-color: rgb(94, 6, 24);
+    }
+    #infos {
+        font-family: 'Zen Dots', cursive;
+        font-size: 1.5em;
+        height: 5vh;
+        -webkit-transform: translateY(7vh);
+            -ms-transform: translateY(7vh);
+                transform: translateY(7vh);
+    }
+    #resumeBtn {
+        width: 80%;
+        height: 75px;
+
     }
 }
