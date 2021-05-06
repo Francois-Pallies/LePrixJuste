@@ -327,25 +327,33 @@ h2 {
     width: 100%;
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    -webkit-transform: translateY(20vh);
-        -ms-transform: translateY(20vh);
-            transform: translateY(20vh);
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    -webkit-transform: translateY(24vh);
+        -ms-transform: translateY(24vh);
+            transform: translateY(24vh);
 }
 #victoryCount {
     margin-left: 3vw;
+    display: flex;
+
+    justify-content: flex-end;
+    flex-direction: column;
+}
+#tentativesCount {
+    margin-right: 3vw;
+    text-align: end;
 }
 #victoires {
     font-family: 'Zen Dots', cursive;
     color: white;
     font-size: 2em;
+
 }
 #tentatives {
     font-family: 'Zen Dots', cursive;
     font-size: 2em;
-    position: absolute;
-
+    bottom: 3vh;
 }
 h3 {
     font-family: 'Zen Dots', cursive;
@@ -354,6 +362,7 @@ h3 {
 #affichageTentatives {
     color: white;
     font-size: 2em;
+    font-family: 'Zen Dots', cursive;
 }
 #nombreADeviner {
     font-size: 5em;
@@ -369,4 +378,57 @@ h4 {
     font-family: 'Zen Dots', cursive;
     font-size: 2em;
     color: white;
+}
+
+/*Media Queries*/
+
+@media screen and (max-height: 860px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    h3, h4 {
+        font-size: 1em;
+    }
+    #consigne {
+        font-size: 1.5em;
+    }
+    #coups {
+        font-size: 1em;
+    }
+    #tentatives {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    h3, h4 {
+        font-size: 1em;
+    }
+    #consigne {
+        font-size: 1em;
+    }
+    #coups {
+        font-size: 1em;
+    }
+    #tentatives {
+        font-size: 1em;
+    }
+}
+@media screen and (max-width: 440px) {
+    h2 {
+        font-size: 1em;
+    }
+    #guessBtn {
+        width: 80%;
+        font-size: 0.8em;
+    }
 }
