@@ -1,0 +1,372 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+/*Reset Global*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*Suppression fleches input Number*/
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Chrome */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button { 
+	-webkit-appearance: none;
+	margin:0;
+}
+
+/* Opéra*/
+input::-o-inner-spin-button,
+input::-o-outer-spin-button { 
+	-o-appearance: none;
+	margin:0
+}
+
+/*Mise en forme*/
+#conteneurJeu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: crimson;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+h1 {
+    z-index: 1000;
+    font-family: 'Zen Dots', cursive;
+    font-size: 5em;
+    margin-bottom: 50px;
+}
+@-webkit-keyframes titleUp {
+    from {
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+    }
+    to {
+        -webkit-transform: translateY(-35vh);
+                transform: translateY(-35vh)
+    }
+}
+@keyframes titleUp {
+    from {
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+    }
+    to {
+        -webkit-transform: translateY(-35vh);
+                transform: translateY(-35vh)
+    }
+}
+#conteneurJeu.started #title {
+    -webkit-animation: titleUp 1s forwards;
+            animation: titleUp 1s forwards;
+}
+@-webkit-keyframes startBtnFadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes startBtnFadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+#startBtn {
+    font-family: 'Zen Dots', cursive;
+    font-size: 2em;
+    width: 230px;
+    height: 75px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(129, 141, 63);
+    -webkit-filter: drop-shadow(10px 15px 10px rgb(51, 6, 15));
+            filter: drop-shadow(10px 15px 10px rgb(51, 6, 15));
+}
+#conteneurJeu.started #startBtn {
+    -webkit-animation: startBtnFadeOut 1s forwards;
+            animation: startBtnFadeOut 1s forwards;
+    pointer-events:none;
+}
+@-webkit-keyframes gameAppear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@keyframes gameAppear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity:1;
+    }
+}
+#jeu {
+    z-index: 500;
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+h2 {
+    font-family: 'Zen Dots', cursive;
+    font-size: 3em;
+    -webkit-transform: translateY(-10vh);
+        -ms-transform: translateY(-10vh);
+            transform: translateY(-10vh);
+
+}
+#consigne {
+    font-family: 'Zen Dots', cursive;
+    font-size: 2em;
+    -webkit-transform: translateY(-5vh);
+        -ms-transform: translateY(-5vh);
+            transform: translateY(-5vh);
+}
+#guessField {
+    height: 200px;
+    width: 200px;
+    font-size: 4em;
+    text-align: center;
+    font-family: 'Zen Dots', cursive;
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+    color: darkgrey;
+    background-color: rgb(94, 6, 24);
+}
+#infos {
+    font-family: 'Zen Dots', cursive;
+    font-size: 1.5em;
+    height: 5vh;
+    -webkit-transform: translateY(5vh);
+        -ms-transform: translateY(5vh);
+            transform: translateY(5vh);
+}
+#guessBtn {
+    font-family: 'Zen Dots', cursive;
+    font-size: 1.2em;
+    width: 400px;
+    height: 75px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(129, 141, 63);
+    -webkit-filter: drop-shadow(10px 15px 10px rgb(51, 6, 15));
+            filter: drop-shadow(10px 15px 10px rgb(51, 6, 15));
+    -webkit-transform: translateY(8vh);
+        -ms-transform: translateY(8vh);
+            transform: translateY(8vh);
+}
+#conteneurJeu.started #jeu {
+    -webkit-animation: gameAppear 1s 0.8s forwards;
+            animation: gameAppear 1s 0.8s forwards;
+    pointer-events: initial;
+}
+/*Restart*/
+@-webkit-keyframes showScore {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    } 
+}
+@keyframes showScore {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    } 
+}
+@-webkit-keyframes hideScore {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    } 
+}
+@keyframes hideScore {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    } 
+}
+
+#showScore {
+    z-index: 601;
+    background-color: crimson;
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+#hideScore.score #showScore {
+    -webkit-animation: showScore 0.5s forwards;
+            animation: showScore 0.5s forwards;
+    pointer-events: all;
+}
+@keyframes hideScore {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    } 
+}
+#hideScore {
+    z-index: 600;
+    position: fixed;
+    opacity: 1;
+    pointer-events: none;   
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+#conteneurJeu.hideScore #hideScore {
+    -webkit-animation: hideScore 0.5s forwards;
+            animation: hideScore 0.5s forwards;
+    pointer-events: none;
+}
+#resumeBtn {
+    position: absolute;
+    font-family: 'Zen Dots', cursive;
+    font-size: 1.2em;
+    width: 400px;
+    height: 75px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(129, 141, 63);
+    -webkit-filter: drop-shadow(10px 15px 10px rgb(51, 6, 15));
+            filter: drop-shadow(10px 15px 10px rgb(51, 6, 15));
+    -webkit-transform: translateY(20vh);
+        -ms-transform: translateY(20vh);
+            transform: translateY(20vh);
+}
+/*Score Hud*/
+#scoreHud {
+    width: 100%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    -webkit-transform: translateY(20vh);
+        -ms-transform: translateY(20vh);
+            transform: translateY(20vh);
+}
+#victoryCount {
+    margin-left: 3vw;
+}
+#victoires {
+    font-family: 'Zen Dots', cursive;
+    color: white;
+    font-size: 2em;
+}
+#tentatives {
+    font-family: 'Zen Dots', cursive;
+    font-size: 2em;
+    position: absolute;
+
+}
+h3 {
+    font-family: 'Zen Dots', cursive;
+    font-size: 2em;
+}
+#affichageTentatives {
+    color: white;
+    font-size: 2em;
+}
+#nombreADeviner {
+    font-size: 5em;
+    color: white;
+    font-family: 'Zen Dots', cursive;
+
+}
+h4 {
+    font-family: 'Zen Dots', cursive;
+    font-size: 2em;
+}
+#coups {
+    font-family: 'Zen Dots', cursive;
+    font-size: 2em;
+    color: white;
+}

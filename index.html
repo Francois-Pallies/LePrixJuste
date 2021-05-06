@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+    <title>Le Prix Juste</title>
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div id="conteneurJeu">
+        <!--Début du jeu-->
+        <h1 id="title">Le Prix Juste</h1>
+        <input type="button" value="Démarrer" id="startBtn">
+        <!--Jeu lancé-->
+        <div id="jeu">
+            <h2 >Devinerez vous le juste prix?</h2>
+            <p id="consigne">Entrez un nombre entre 0 et 100</p>
+            <input type="number" value="" name="" id="guessField">
+            <p id="infos"></p>
+            <input id="guessBtn" type="button" value="C'est mon dernier mot Thomas!">
+            <div id="scoreHud">
+                <div id="victoryCount">
+                    <h4>Victoires</h4>
+                    <p id="victoires">0</p>
+                </div>
+                <div>
+                    <p id="tentatives">Il vous reste <span id="affichageTentatives"></span> tentatives !</p>                      
+                </div>
+            </div>
+        </div>
+        <div id="hideScore">
+            <div id="showScore">
+                <h3 id="resultat"></h3>
+                <h3 id="nombreADeviner"></h3>
+                <h4>En <span id="coups"></span> coups!</h4>
+                <input id="resumeBtn" type="button" value="Rejouer ?">
+            </div>
+        </div>
+    </div>
+<!--Link du Script-->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/monscript.js"></script>
+</body>
+</html>
