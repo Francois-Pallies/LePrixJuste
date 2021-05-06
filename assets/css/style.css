@@ -431,4 +431,9 @@ h4 {
         width: 80%;
         font-size: 0.8em;
     }
+    #scoreHud {
+    -webkit-transform: translateY(18vh);
+    -ms-transform: translateY(18vh);
+        transform: translateY(18vh);
+    }
 }
