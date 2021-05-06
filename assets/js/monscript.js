@@ -54,16 +54,8 @@ function jeu() {
 
   $('#guessBtn').on('click', function() {
     guess = parseInt($('#guessField').val());
-    if (tentativesRestantes == 1) {
-      $('#resultat').text('Perdu ! Il fallait trouver:');
-      $('#nombreADeviner').text(`${target}`);
-      $('#hideScore').css({'pointer-events': 'all'});
-      $('#guessField').val('')
-      victoires = 0
-      $('#victoires').text(`${victoires}`)
-      console.log(tentativesRestantes)    
-      score()     
-    } else if (guess == target) {
+    
+      if (guess == target && tentativesRestantes > 0) {
       $('#resultat').text(`Bravo,
       vous avez deviné,`);
       $('#nombreADeviner').text(`${target}`);
@@ -85,8 +77,16 @@ function jeu() {
       $('#infos').text('C\'est moins!');
       $('#guessField').val('')
       console.log('C\'est moins!' + tentativesRestantes + 'Deviner' +  target)   
-    } 
-    
+    } else if (tentativesRestantes === 1) {
+      $('#resultat').text('Perdu ! Il fallait trouver:');
+      $('#nombreADeviner').text(`${target}`);
+      $('#hideScore').css({'pointer-events': 'all'});
+      $('#guessField').val('')
+      victoires = 0
+      $('#victoires').text(`${victoires}`)
+      console.log(tentativesRestantes)    
+      score()     
+    }
     $('#affichageTentatives').text(tentativesRestantes)
   })
   //Affichage du score
