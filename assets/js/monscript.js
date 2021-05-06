@@ -104,7 +104,7 @@ $('#resumeBtn').on('click', function(){
   setTimeout(function(){$('#conteneurJeu').removeClass('hideScore')}, 600)
   newGame()
 })
-
+//
 function newGame() {
   $('#affichageTentatives').text('10')
   target = (Math.floor(Math.random() * 100));
