@@ -1,3 +1,4 @@
+console.log('Si tu vois ce message, alors tu es un(e) tricheur(euse) :D')
 //Déclencheurs & animations
   //Déclenchement Animations départ
   $('#startBtn').on('click', function() {
