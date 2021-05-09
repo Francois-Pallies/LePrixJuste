@@ -40,7 +40,6 @@ $('#resumeBtn')
   })
 }) 
 
-
 //Déclarations des variables
 let target
 let guess
