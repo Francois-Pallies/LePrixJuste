@@ -50,42 +50,49 @@ function jeu() {
   $('#affichageTentatives').text('10')
   target = (Math.floor(Math.random() * 100));
   tentativesRestantes = 10;
+
   console.log($(target), $(tentativesRestantes))
 
   $('#guessBtn').on('click', function() {
-    guess = parseInt($('#guessField').val());
-    
-      if (guess == target && tentativesRestantes > 0) {
-      $('#resultat').text(`Bravo,
-      vous avez deviné,`);
-      $('#nombreADeviner').text(`${target}`);
-      $('#coups').text(11 - tentativesRestantes)
-      $('#hideScore').css({'pointer-events': 'all'});
-      $('#guessField').val('')
-      victoires+= 1
-      console.log(victoires)
-      $('#victoires').text(`${victoires}`)
-      console.log(guess, tentativesRestantes)
-      score()     
-    } else if (guess < target) {
-      tentativesRestantes-=1
-      $('#infos').text('C\'est plus!');
-      $('#guessField').val('')
+    guess = parseInt($('#guessField').val());    
+      if (guess === target && tentativesRestantes > 1) {     
+        $('#resultat').text(`Bravo,
+        vous avez deviné,`);      
+        $('#nombreADeviner').text(`${target}`);
+        $('#coups').text(11 - tentativesRestantes)
+        $('#hideScore').css({'pointer-events': 'all'});
+        $('#guessField').val('')
+        victoires+= 1
+        console.log(victoires)
+        $('#victoires').text(`${victoires}`)
+        console.log(guess, tentativesRestantes)
+        score()     
+    } else if (guess < target && tentativesRestantes > 1) {
+        tentativesRestantes-=1
+        $('#infos').text('C\'est plus!');
+        $('#guessField').val('')
+
       console.log('C\'est plus' + tentativesRestantes + 'Deviner' +  target)    
-    } else if (guess > target) {
-      tentativesRestantes-=1
-      $('#infos').text('C\'est moins!');
-      $('#guessField').val('')
+
+    } else if (guess > target && tentativesRestantes > 1) {
+        tentativesRestantes-=1
+        $('#infos').text('C\'est moins!');
+        $('#guessField').val('')
+
       console.log('C\'est moins!' + tentativesRestantes + 'Deviner' +  target)   
+
     } else if (tentativesRestantes === 1) {
-      $('#resultat').text('Perdu ! Il fallait trouver:');
-      $('#nombreADeviner').text(`${target}`);
-      $('#hideScore').css({'pointer-events': 'all'});
-      $('#guessField').val('')
-      victoires = 0
-      $('#victoires').text(`${victoires}`)
-      console.log(tentativesRestantes)    
-      score()     
+        $('#resultat').text('Perdu ! Il fallait trouver:');
+        $('#nombreADeviner').text(`${target}`);
+        $('#hideScore').css({'pointer-events': 'all'});
+        $('#guessField').val('')
+        $('#hideIfLoose').hide()
+        victoires= 0
+        $('#victoires').text(`${victoires}`)
+        score()     
+
+      console.log(tentativesRestantes)
+
     }
     $('#affichageTentatives').text(tentativesRestantes)
   })
@@ -102,9 +109,10 @@ $('#resumeBtn').on('click', function(){
   $('#hideScore').css({'pointer-events': 'none'})
   setTimeout(function(){$('#hideScore').removeClass('score')}, 600)
   setTimeout(function(){$('#conteneurJeu').removeClass('hideScore')}, 600)
+  setTimeout(function(){$('#hideIfLoose').show()}, 600)  
   newGame()
 })
-//
+
 function newGame() {
   $('#affichageTentatives').text('10')
   target = (Math.floor(Math.random() * 100));
@@ -112,38 +120,44 @@ function newGame() {
   console.log($(target), $(tentativesRestantes))
 
   $('#guessBtn').on('click', function() {
-    guess = parseInt($('#guessField').val());
-    if (tentativesRestantes == 0) {
-      $('#resultat').text('Perdu ! Il fallait trouver:');
-      $('#nombreADeviner').text(`${target}`);
-      $('#hideScore').css({'pointer-events': 'all'});
-      $('#guessField').val('')
-      console.log(tentativesRestantes)    
-      score()     
-    } else if (guess == target) {
-      $('#resultat').text(`Bravo,
-      vous avez deviné,`);
-      $('#nombreADeviner').text(`${target}`);
-      $('#hideScore').css({'pointer-events': 'all'});
-      $('#guessField').val('')
+    guess = parseInt($('#guessField').val());        
+      if (guess === target && tentativesRestantes > 1) {
+        $('#resultat').text(`Bravo,
+        vous avez deviné,`);
+        $('#nombreADeviner').text(`${target}`);
+        $('#hideScore').css({'pointer-events': 'all'});
+        $('#guessField').val('')
+        score()     
+
       console.log(guess, tentativesRestantes)
-      score()     
-    } else if (guess < target) {
-      tentativesRestantes-=1
-      $('#infos').text('C\'est plus!');
-      $('#guessField').val('')
+
+    } else if (guess < target && tentativesRestantes > 1) {
+        tentativesRestantes-=1
+        $('#infos').text('C\'est plus!');
+        $('#guessField').val('')
+
       console.log('C\'est plus' + tentativesRestantes + 'Deviner' +  target)    
-    } else if (guess > target) {
-      tentativesRestantes-=1
-      $('#infos').text('C\'est moins!');
-      $('#guessField').val('')
+
+    } else if (guess > target && tentativesRestantes > 1) {
+        tentativesRestantes-=1
+        $('#infos').text('C\'est moins!');
+        $('#guessField').val('')
+
       console.log('C\'est moins!' + tentativesRestantes + 'Deviner' +  target)   
-    } 
-    
-    $('#affichageTentatives').text(tentativesRestantes)
-  })
-    //Affichage du score
-    function score() {
-      $('#hideScore').addClass('score');
+
+    } else if (tentativesRestantes === 0) {
+        $('#resultat').text('Perdu ! Il fallait trouver:');
+        $('#nombreADeviner').text(`${target}`);
+        $('#hideScore').css({'pointer-events': 'all'});
+        $('#guessField').val('')
+        $('#hideIfLoose').hide()
+        $('#victoires').text(`0`)
+        victoires= 0
+        score()     
+        $('#affichageTentatives').text(tentativesRestantes)
+
+      console.log(tentativesRestantes)    
+
     }
   }
+)}
